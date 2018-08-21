@@ -22,6 +22,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <azure.version>2.0.4</azure.version>
         <java.version>1.8</java.version>
+        <logback.gelf.version>1.1.7</logback.gelf.version>
 
         <azure-webapp-maven-plugin.javaVersion>1.8</azure-webapp-maven-plugin.javaVersion>
         <azure-webapp-maven-plugin.pricingTier>B1</azure-webapp-maven-plugin.pricingTier>
@@ -51,14 +52,18 @@
             <scope>runtime</scope>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>com.h2database</groupId>-->
-            <!--<artifactId>h2</artifactId>-->
-            <!--<scope>runtime</scope>-->
+        <!--<groupId>com.h2database</groupId>-->
+        <!--<artifactId>h2</artifactId>-->
+        <!--<scope>runtime</scope>-->
         <!--</dependency>-->
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>sqljdbc4</artifactId>
             <version>4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.pukkaone</groupId>
+            <artifactId>logback-gelf</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -75,6 +80,11 @@
                 <version>${azure.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pukkaone</groupId>
+                <artifactId>logback-gelf</artifactId>
+                <version>${logback.gelf.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
