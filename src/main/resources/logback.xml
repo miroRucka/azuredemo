@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<property resource="application.properties" />
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+	<jmxConfigurator/>
+
+	<appender name="GRAYLOG2" class="com.github.pukkaone.gelf.logback.GelfAppender">
+		<graylogHost>${GRAYLOG_PROTOCOL:-udp}:${GRAYLOG_SERVER:-172.16.13.195}</graylogHost>
+		<graylogPort>${GRAYLOG_PORT:-12202}</graylogPort>
+		<originHost>${GRAYLOG_ORIGIN_HOST:-dev}</originHost>
+		<levelIncluded>true</levelIncluded>
+		<locationIncluded>false</locationIncluded>
+		<loggerIncluded>true</loggerIncluded>
+		<markerIncluded>false</markerIncluded>
+		<mdcIncluded>true</mdcIncluded>
+		<threadIncluded>false</threadIncluded>
+		<facility>gelf-java</facility>
+		<additionalField>application=azuredemo</additionalField>
+		<additionalField>platform=boot</additionalField>
+	</appender>
+
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="GRAYLOG2" />
+	</root>
+
+</configuration>
