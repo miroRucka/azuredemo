@@ -97,10 +97,10 @@
                     <artifactId>azure-webapp-maven-plugin</artifactId>
                     <configuration>
                         <authentication>
-                            <serverId>azure-auth</serverId>
+                            <serverId>azure-auth-dsi</serverId>
                         </authentication>
                         <resourceGroup>maven-plugin</resourceGroup>
-                        <appName>azure-demo-frai</appName>
+                        <appName>azure-demo-posam</appName>
                         <region>westeurope</region>
                         <javaVersion>1.8</javaVersion>
                         <deploymentType>ftp</deploymentType>
